@@ -1,1 +1,3 @@
-import todo from './todo';
+import addTodo from './todo';
+addTodo;
+
