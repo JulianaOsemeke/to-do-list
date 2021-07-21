@@ -10,6 +10,7 @@ todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteMarker);
 filterOption.addEventListener('click', filterTodo);
 // functions
+addTodo;
 function addTodo(event) {
 // prevent form from submitting
   event.preventDefault();
@@ -36,7 +37,7 @@ function addTodo(event) {
 // APPEND TO LIST
   todoList.appendChild(todoDiv);
 // CLEAR todo INPUT VALUE
-  todoInput.value ="";
-};
+  todoInput.value = "";
+}
 
 export default addTodo;

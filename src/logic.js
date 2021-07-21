@@ -9,7 +9,7 @@ export function deleteMarker(e) {
         const todo = item.parentElement;
   // ANIMATION
         todo.classList.add('fall');
-        removeLocalTodos(todo);
+        removeLocalTodos (todo);
         todo.addEventListener('transitionend',function() {
         todo.remove();
     });
