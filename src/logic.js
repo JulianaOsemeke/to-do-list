@@ -1,6 +1,5 @@
 const todoList = document.querySelector(".to-do-list");
 
-
 export function deleteMarker(e) {
   const item = e.target;
 
@@ -9,12 +8,12 @@ export function deleteMarker(e) {
     const todo = item.parentElement;
     //ANIMATION
     todo.classList.add("fall");
+    removeLocalTodos(todo);
     todo.addEventListener('transitionend',function() {
       todo.remove();
     });
 
   }
-
   //CHECK MARK
   if (item.classList[0] === "complete-btn" ){
     const todo = item.parentElement;
@@ -34,7 +33,7 @@ export function filterTodo(e) {
             todo.style.display = "flex";
           } else {
             todo.style.display = "none";
-          }
+          } 
           break;
         case "uncompleted":
           if(!todo.classList.contains("completed")) {
@@ -57,17 +56,52 @@ export function saveLocalTodos(todo){
   } else{
     todos = JSON.parse(localStorage.getItem('todos'));
   }
+  
   todos.push(todo);
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-export  function getTods(){
-  let todos;
+export function getTods(){
   if(localStorage.getItem('todos') === null ){
     todos = [];
   } else{
     todos = JSON.parse(localStorage.getItem('todos'));
   }
-  todos.push(todo);
+  todos.forEach(function(todo) {
+   //Todo DIV
+  const todoDiv = document.createElement('div');
+  todoDiv.classList.add("todo");
+  //Create LI
+  const newTodo = document.createElement('li');
+  newTodo.innerText = todo;
+  newTodo.classList.add('todo-item');
+  todoDiv.appendChild(newTodo);
+  //ADD TODO TO LOCAL STORAGE
+  
+  //CHECK MARK BUTTON
+  const completedButton = document.createElement('button');
+  completedButton.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
+  completedButton.classList.add('complete-btn');
+  todoDiv.appendChild(completedButton);
+  
+  
+  //CHECK DELETE BUTTON
+   const deleteButton = document.createElement('button');
+   deleteButton.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
+   deleteButton.classList.add('delete-btn');
+   todoDiv.appendChild(deleteButton);
+   //APPEND TO LIST
+   todoList.appendChild(todoDiv);
+  });
+}
+
+export function removeLocalTodos(todo){
+  if(localStorage.getItem('todos') === null ){
+    todos = [];
+  } else{
+    todos = JSON.parse(localStorage.getItem('todos'));
+  }
+  const todoIndex = todo.children[0].innerText ;
+  todos.splice(todos.indexOf(todoIndex), 1);
   localStorage.setItem("todos", JSON.stringify(todos));
 }
