@@ -5,14 +5,12 @@ const todoButton = document.querySelector('.buttonlist');
 const todoList = document.querySelector('.to-do-list');
 const filterOption = document.querySelector('.filter-todo');
 // Event Listeners
-// document.addEventListener('DOMContentLoaded',getTodos);
+addTodo;
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteMarker);
 filterOption.addEventListener('click', filterTodo);
-// functions
-addTodo;
+
 function addTodo(event) {
-// prevent form from submitting
   event.preventDefault();
 // Todo DIV
   const todoDiv = document.createElement('div');
