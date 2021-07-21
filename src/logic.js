@@ -3,16 +3,16 @@ const todoList = document.querySelector('.to-do-list');
 export function deleteMarker(e) {
   const item = e.target;
 
-  //DELETE TODO
-  if(item.classList[0] === 'delete-btn') {
-    const todo = item.parentElement;
-  //ANIMATION
-    todo.classList.add('fall');
-    removeLocalTodos(todo);
-    todo.addEventListener('transitionend',function() {
-      todo.remove();
-    });
+  // DELETE TODO
 
+  if (item.classList[0] === 'delete-btn') {
+        const todo = item.parentElement;
+  // ANIMATION
+        todo.classList.add('fall');
+        removeLocalTodos(todo);
+        todo.addEventListener('transitionend',function() {
+        todo.remove();
+    });
   }
   //CHECK MARK
   if (item.classList[0] === 'complete-btn'){
