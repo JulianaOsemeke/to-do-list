@@ -1,11 +1,11 @@
-import { saveLocalTodos, deleteMarker, filterTodo } from './logic';
+import { saveLocalTodos, deleteMarker, filterTodo, addTodo } from './logic';
 // Selectors
 const todoInput = document.querySelector('.input-todo');
 const todoButton = document.querySelector('.buttonlist');
 const todoList = document.querySelector('.to-do-list');
 const filterOption = document.querySelector('.filter-todo');
 // Event Listeners
-addTodo;
+
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteMarker);
 filterOption.addEventListener('click', filterTodo);
