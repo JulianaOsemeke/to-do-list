@@ -1,22 +1,19 @@
 import {saveLocalTodos, deleteMarker, filterTodo} from './logic.js'
-
 //Selectors
-const todoInput = document.querySelector(".input-todo");
-const todoButton = document.querySelector(".buttonlist");
-const todoList = document.querySelector(".to-do-list");
-const filterOption = document.querySelector(".filter-todo")
-
+const todoInput = document.querySelector('.input-todo');
+const todoButton = document.querySelector('.buttonlist');
+const todoList = document.querySelector('.to-do-list');
+const filterOption = document.querySelector('.filter-todo')
 //Event Listeners
+// document.addEventListener('DOMContentLoaded',getTodos);
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteMarker);
 filterOption.addEventListener("click",filterTodo);
-
 //functions
-function addTodo(event) {
-
-  //prevent form from submitting
+  function addTodo(event) {
+//prevent form from submitting
   event.preventDefault();
-  //Todo DIV
+//Todo DIV
   const todoDiv = document.createElement('div');
   todoDiv.classList.add("todo");
   //Create LI
@@ -38,8 +35,8 @@ function addTodo(event) {
    todoDiv.appendChild(deleteButton);
    //APPEND TO LIST
    todoList.appendChild(todoDiv);
-   //CLEAR todo input value
+   //CLEAR todo INPUT VALUE
    todoInput.value ="";
-}
+};
 
 export default addTodo;
