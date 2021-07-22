@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # to-do-list
-This is a solo project that enatils building a to do list with Javascript and Webpack
+This is a solo project that entails building a to do list with Javascript and Webpack
 
 ![screenshot](dist/Assets/toDo.png)
 
