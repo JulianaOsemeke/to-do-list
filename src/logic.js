@@ -6,7 +6,7 @@ export function deleteMarker(e) {
     const todo = item.parentElement;
     // ANIMATION
     todo.classList.add('fall');
-    removeLocalTodos(todo);
+    removeLocalTodos(todo); // eslint-disable-line no-use-before-define
     todo.addEventListener('transitionend', () => {
       todo.remove();
     });
@@ -39,6 +39,8 @@ export function filterTodo(e) {
           todo.style.display = 'none';
         }
         break;
+      default:
+        // do nothing
     }
   });
 }
@@ -57,11 +59,11 @@ export function saveLocalTodos(todo) {
 
 export function getTods() {
   if (localStorage.getItem('todos') === null) {
-    todos = [];
+    todos = []; // eslint-disable-line
   } else {
-    todos = JSON.parse(localStorage.getItem('todos'));
+    todos = JSON.parse(localStorage.getItem('todos')); // eslint-disable-line
   }
-  todos.forEach((todo) => {
+  todos.forEach((todo) => { // eslint-disable-line
     const todoDiv = document.createElement('div');
     todoDiv.classList.add('todo');
 
@@ -85,11 +87,11 @@ export function getTods() {
 
 export function removeLocalTodos(todo) {
   if (localStorage.getItem('todos') === null) {
-    todos = [];
+    todos = []; // eslint-disable-line
   } else {
-    todos = JSON.parse(localStorage.getItem('todos'));
+    todos = JSON.parse(localStorage.getItem('todos')); // eslint-disable-line
   }
   const todoIndex = todo.children[0].innerText;
-  todos.splice(todos.indexOf(todoIndex), 1);
-  localStorage.setItem('todos', JSON.stringify(todos));
+  todos.splice(todos.indexOf(todoIndex), 1); // eslint-disable-line
+  localStorage.setItem('todos', JSON.stringify(todos)); // eslint-disable-line
 }
